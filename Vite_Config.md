@@ -112,11 +112,39 @@
 
 ---
 
-### 環境変数の指定
+###  ビルドのエントリーポイント
+
+- デフォルトのビルドエントリーポイントはプロジェクトルート直下の index.html
+
+- build.rollupOptions.input にビルドのエントリーポイントとなるファイルを指定する
+
+    ```js
+    //vite.config.js
+    import { defineConfig } from 'vite'
+
+    export default defineConfig({
+        build: {
+            rollupOptions: {
+                input: {
+                    //key: "file path" で指定する
+                    entry: "src/main.ts"
+                }
+            },
+        },
+    });
+    ```
+
+    <br>
+
+    - input オブジェクトで指定するキー (上記の例で言うと `entry`)　は出力されるファイルの名前に相当する
+
+        <img src="./img/Config/Vite-Config-Build-RollupOptions-Input-Key_1.png" />
 
 <br>
 <br>
 
 参考サイト
 
-[環境変数とモード](https://ja.vite.dev/guide/env-and-mode#環境変数とモード)
+[Vite - ビルドのカスタマイズ](https://ja.vite.dev/guide/build#ビルドのカスタマイズ)
+
+[Rollup - input](https://rollupjs.org/configuration-options/#input)
